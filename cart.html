@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Shopping Cart</title>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Shopping Cart</title>
+        <style>
+            /* Basic styling for the buttons and cart */
+            .product {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+            }
+    
+            /* Add styling for the payment options section */
+            .payment-options {
+                margin-top: 20px;
+            }
+    
+            .payment-options button {
+                background-color: #f0f0f0;
+                border: none;
+                padding: 10px 20px;
+                margin-right: 10px;
+                margin-bottom: 10px;
+                cursor: pointer;
+            }
+    
+            .payment-options button:hover {
+                background-color: #ddd;
+            }
+    
+            /* Basic styling for the cart */
+            .cart {
+                border: 1px solid #ccc;
+                padding: 10px;
+            }
+        </style>
+    </head>
+
+    <style>
+        /* Basic styling for the buttons and cart */
+        .product {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .cart {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="product">
+        <span>iPhone X</span>
+        <button onclick="addToCart('iPhone X', 1000)">Buy Now</button>
+    </div>
+    <div class="product">
+        <span>Google Pixel 6</span>
+        <button onclick="addToCart('Google Pixel 6', 700)">Buy Now</button>
+    </div>
+
+    <div class="cart">
+        <h2>Shopping Cart</h2>
+        <ul id="cartItems"></ul>
+        <p>Total: $<span id="totalPrice">0</span></p>
+    </div>
+
+    <div class="payment-options">
+        <h2>Payment Options</h2>
+        <button onclick="selectPayment('UPI')">UPI</button>
+        <button onclick="selectPayment('Credit/Debit Card')">Credit/Debit Card</button>
+        <button onclick="selectPayment('Net Banking')">Net Banking</button>
+        <button onclick="selectPayment('EMI')">EMI</button>
+        <button onclick="selectPayment('Cash on Delivery')">Cash on Delivery</button>
+    </div>
+
+    <script>
+        const cart = [];
+        let totalPrice = 0;
+
+        function addToCart(productName, price) {
+            cart.push({ name: productName, price: price });
+            totalPrice += price;
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cartItems');
+            const total = document.getElementById('totalPrice');
+            cartItems.innerHTML = '';
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - $${item.price}`;
+                cartItems.appendChild(li);
+            });
+            total.textContent = totalPrice;
+        }
+
+        function selectPayment(option) {
+            alert(`Selected payment option: ${option}`);
+        }
+    </script>
+</body>
+</html>

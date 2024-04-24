@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>tech store|Contact Us</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/w3css/4/w3.css">
+    <link rel="stylesheet" href="css/w3css/4/w3colors.css">
+    <link rel="stylesheet" href="css/hover.css">
+    <script src="js/main.js"></script>
+    <script src="js/w3.js"></script>
+
+</head>
+
+<body>
+    <section>
+        <!-- header -->
+        <div class=" w3-section head ">
+            <h1 class=" w3-animate-top w3-center  ">
+                <span class="w3-tag w3-jumbo hvr-grow-rotate ">N</span>
+                <span class="w3-tag w3-jumbo w3-white hvr-grow-rotate">E</span>
+                <span class="w3-tag w3-jumbo hvr-grow-rotate">X</span>
+                <span class="w3-tag w3-jumbo w3-white hvr-grow-rotate">T</span>
+            </h1>
+            <h1 id="test" class="w3-animate-zoom w3-center ">
+                <span class=" w3-tag w3-jumbo hvr-grow-rotate">G</span>
+                <span class="w3-tag w3-jumbo w3-white hvr-grow-rotate ">E</span>
+                <span class="w3-tag w3-jumbo hvr-grow-rotate ">N</span>
+            </h1>
+        </div>
+        <hr class="w3-border w3-padding w3-black">
+
+        <div class="w3-section w3-bar w3-center ">
+            <a href="home.html"
+                class="w3-large  w3-button w3-mobile w3-wide w3-round-large w3-hover-blue w3-hover-shadow">Home</a>
+            <a href="our service.html"
+                class="w3-large  w3-button w3-mobile w3-wide w3-round-large w3-hover-blue w3-hover-shadow">Our
+                Services</a>
+            <a href="register with us.html"
+                class="w3-large  w3-button w3-mobile w3-wide w3-round-large w3-hover-blue w3-hover-shadow">Register With
+                Us</a>
+
+        </div>
+    </section>
+    <!-- end of header -->
+    <!-- start of the form -->
+
+    <form name="contactForm" onsubmit="return isValidForm()" method="POST"
+        class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+        <h2 class="w3-center">Contact Us</h2>
+        <p id="text" style="color: red; font-size: xx-large;display: none;">CapsLock is On</p>
+
+        <div class="w3-row w3-section ">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+            <div class="w3-rest">
+                <input required id="myInput" class="w3-input w3-border " name="first" type="text"
+                    placeholder="First Name">
+            </div>
+        </div>
+
+        <div class="w3-row w3-section ">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+            <div class="w3-rest">
+                <input required id="myInput2" class="w3-input w3-border " name="last" type="text"
+                    placeholder="Last Name">
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-envelope-o"></i></div>
+            <div class="w3-rest">
+                <input required class="w3-input w3-border" name="email" type="email" placeholder="Email">
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-phone"></i></div>
+            <div class="w3-rest">
+                <input required class="w3-input w3-border" name="phone" type="number" placeholder="Phone">
+            </div>
+        </div>
+
+        <div class="w3-row w3-section">
+            <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
+            <div class="w3-rest">
+                <input required class="w3-input w3-border " name="message" type="text" placeholder="Message">
+            </div>
+        </div>
+
+        <button class="w3-button w3-block w3-blue w3-center" id="myBtn">Send</button>
+    </form>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content  w3-center w3-card w3-round">
+            <span class="close w3-text-red">&times;</span>
+            <div class="w3-bar w3-container  ">
+               <p class="w3-large"> thank you for texting us </p>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- end of the form -->
+        <script>
+            // this script to warn the user that the CAPS lock is on :
+
+            // Get the input field
+            var input = document.getElementById("myInput");
+            var input2 = document.getElementById("myInput2");
+            // Get the warning text
+            var text = document.getElementById("text");
+            // When the user presses any key on the keyboard, run the function
+            input.addEventListener("keyup", function (event) {
+                // If "caps lock" is pressed, display the warning text
+                if (event.getModifierState("CapsLock")) {
+                    text.style.display = "block";
+                } else {
+                    text.style.display = "none"
+                }
+            });
+            input2.addEventListener("keyup", function (event) {
+
+                // If "caps lock" is pressed, display the warning text
+                if (event.getModifierState("CapsLock")) {
+                    text.style.display = "block";
+                } else {
+                    text.style.display = "none"
+                }
+            });
+
+            ///////////////////////////////////////////////////
+            //this script to validate the phone number :
+            function isValidForm() {
+                var phonenum = document.forms["contactForm"]["phone"].value;
+                if (phonenum > 9999999999 || phonenum < 11111111) {
+                    alert("wrong phone number !");
+                    return false;
+                }
+
+            }9
+
+            /////////////////////////////////////////////////////
+            //this script to tell the user that his message has been send:
+
+
+            // Get the modal
+            var modal = document.getElementById("myModal");
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on the send button, open the modal
+            btn.onclick = function () {
+                // turn the modal visiable
+                modal.style.display = "block";
+            }
+            // When the user clicks on <span> (x), close the modal
+                span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+        </script>
+</body>
+
+</html>
